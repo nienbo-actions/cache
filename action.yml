@@ -1,29 +1,29 @@
 name: cache
 author: nienbo-actions
-description: S3 actions cache with actions/cache@v2 fallback
+description: S3 Cache Action with actions/cache@v2 fallback
 inputs:
   endpoint:
-    description: S3 Endpoint
+    description: S3 Endpoint without Region
     required: false
-    default: S3.amazonaws.com
+    default: s3.amazonaws.com
   region:
     description: S3 Region
     required: false
     default: us-east-2
   port:
-    description: s3 server port
+    description: S3 Server Port
     required: false
   insecure:
-    description: use insecure http connection
+    description: Use http only connection
     required: false
-  accessKey:
-    description: S3 accessKey
+  aws-access-key:
+    description: S3 AWS_ACCESS_KEY_ID
     required: true
-  secretKey:
-    description: S3 secretKey
+  aws-secret-access-key:
+    description: S3 AWS_SECRET_ACCESS_KEY
     required: true
   bucket:
-    description: S3 bucket
+    description: S3 Bucket Name
     required: true
   path:
     description: 'A list of files, directories, and wildcard patterns to cache and restore'
@@ -35,9 +35,9 @@ inputs:
     description: 'An ordered list of keys to use for restoring the cache if no cache hit occurred for key'
     required: false
   use-fallback:
-    description: 'Use github actions/cache as fallback'
+    description: 'Use official GitHub actions/cache@v2 as fallback'
     required: false
-    default: 'true'
+    default: 'false'
 outputs:
   cache-hit:
     description: 'A boolean value to indicate an exact match was found for the primary key'
